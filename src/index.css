@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-terminal-bg: #020204;
+  --color-terminal-text: #22c55e;
+  --animate-flash: flash 1s step-end infinite;
+}
+
+@theme {
+  --animate-xenomorph: xenomorph-breathe 6s infinite ease-in-out;
+  --animate-singularity-fade: singularity-fade 5s forwards ease-out;
+  --animate-obsidian-pulse: obsidian-pulse 4s infinite ease-in-out;
+}
+
+@keyframes xenomorph-breathe {
+  0%, 100% { transform: scale(1); text-shadow: none; }
+  45% { transform: scale(1.01); text-shadow: 0 0 8px var(--color-terminal-text, rgba(0, 255, 102, 0.4)); }
+  50% { transform: scale(1.01); text-shadow: 0 0 20px var(--color-terminal-text, rgba(0, 255, 102, 0.8)); }
+  55% { transform: scale(1.01); text-shadow: 0 0 8px var(--color-terminal-text, rgba(0, 255, 102, 0.4)); }
+}
+
+@keyframes singularity-fade {
+  0% { opacity: 1; }
+  10% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+@keyframes obsidian-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+@layer utilities {
+  .horizon-glow {
+    text-shadow: 0 0 10px var(--color-terminal-text, rgba(157, 78, 221, 0.8));
+  }
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-terminal-bg);
+    color: var(--color-terminal-text);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+}
